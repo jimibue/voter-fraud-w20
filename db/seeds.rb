@@ -38,7 +38,7 @@
 
 food = "food"
 game = "game"
-random = "game"
+random = "random"
 
 ### have default things
 10.times do
