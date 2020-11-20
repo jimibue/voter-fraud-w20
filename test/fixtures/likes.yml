@@ -3,9 +3,9 @@
 one:
   user: one
   thing: one
-  group: one
+  room: one
 
 two:
   user: two
   thing: two
-  group: two
+  room: two
