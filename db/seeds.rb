@@ -32,3 +32,38 @@
 # User.find(4).likes # this grabs user likes
 # user1.things things user likes
 # food_thing1.users
+
+### how my app works
+### hardcode things for now (MVP)
+
+food = "food"
+game = "game"
+random = "game"
+
+### have default things
+10.times do
+  Thing.create(name: Faker::Restaurant.name, tag: food)
+end
+
+10.times do
+  Thing.create(name: Faker::Game.title, tag: game)
+end
+
+10.times do
+  Thing.create(name: Faker::Hipster.sentence(word_count: 3), tag: random)
+end
+
+# Room is created
+test_food_room = Room.create(code: "test_food", num_users: 4, tag: food)
+
+# User joins room (name for user is really not need)
+u1 = test_food_room.users.create(name: "user1")
+u2 = test_food_room.users.create(name: "user2")
+u3 = test_food_room.users.create(name: "user3")
+# I am going join this room on when I test
+
+thing = Thing.all.where(tag: "food")[0]
+
+u1.likes.create(thing_id: thing.id, room_id: test_food_room.id)
+u2.likes.create(thing_id: thing.id, room_id: test_food_room.id)
+u3.likes.create(thing_id: thing.id, room_id: test_food_room.id)
